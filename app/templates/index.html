@@ -7,7 +7,7 @@
         {% for tick in tickets %}
         <div class="col">
           <div class="card">
-            <img src="https://proprikol.ru/wp-content/uploads/2019/11/kartinki-balet-3.jpg" class="card-img-top">
+            <img src="{{ tick.ticket_img }}" class="card-img-top">
             <div class="card-body">
               <h5 class="card-title">{{ tick.ticket_name }}</h5>
               <p class="card-text">{{ tick.ticket_body }}</p>

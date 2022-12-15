@@ -16,3 +16,4 @@ class Ticket(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     ticket_name = db.Column(db.String(64))
     ticket_body = db.Column(db.String(600))
+    ticket_img = db.Column(db.String(800))
