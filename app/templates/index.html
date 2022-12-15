@@ -1,6 +1,58 @@
 {% extends 'base.html' %}
 
 {% block app_content %}
-    <h1>Концерты в Уфе</h1>
-    
+    <h1>Доступные билеты!</h1>
+    <br>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for tick in tickets %}
+        <div class="col">
+          <div class="card">
+            <img src="https://proprikol.ru/wp-content/uploads/2019/11/kartinki-balet-3.jpg" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">{{ tick.ticket_name }}</h5>
+              <p class="card-text">{{ tick.ticket_body }}</p>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Купить
+              </button>
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Покупка билета</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Имя</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="">
+                        <label for="floatingInput">Фамилия</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <label for="floatingInput">Электронная почта</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                          <option selected>Выберите место</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                        </select>
+                        <label for="floatingSelect">Выбор мест</label>
+                      </div>
+                      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="/success" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">Купить</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
 {% endblock %}

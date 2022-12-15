@@ -10,3 +10,9 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
+
+
+class Ticket(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    ticket_name = db.Column(db.String(64))
+    ticket_body = db.Column(db.String(600))
