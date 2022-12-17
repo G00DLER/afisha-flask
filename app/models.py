@@ -17,3 +17,4 @@ class Ticket(db.Model):
     ticket_name = db.Column(db.String(64))
     ticket_body = db.Column(db.String(600))
     ticket_img = db.Column(db.String(800))
+    ticket_time = db.Column(db.DateTime)
